@@ -1,0 +1,53 @@
+@use './variables';
+@use './mixins';
+@use './fonts';
+@use './reset';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+body {
+  font-family: variables.$font-inter;
+  font-weight: 400;
+  overflow-x: hidden;
+  color: variables.$color-white-2;
+  background-color: variables.$background-page-color;
+}
+
+.catalogue-container {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.section-container {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

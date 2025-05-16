@@ -1,0 +1,28 @@
+@use '@/styles/variables';
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 500;
+  color: variables.$color-white-2;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+
+    .icon path {
+      fill: variables.$color-white-1;
+    }
+  }
+
+  .icon {
+    path {
+      fill: transparent;
+      stroke: variables.$color-white-2;
+      transition: fill 0.2s;
+    }
+  }
+}

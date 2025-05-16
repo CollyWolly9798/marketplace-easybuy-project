@@ -1,0 +1,64 @@
+@use '@/styles/variables';
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search-field {
+  position: relative;
+  flex-grow: 1;
+  background-color: variables.$color-white-6;
+  border-radius: 8px 0 0 8px;
+
+  // Focus input
+  &:focus-within {
+    .search-input::placeholder {
+      color: variables.$color-blue-10;
+    }
+
+    .search-icon path {
+      fill: variables.$color-white-2;
+      stroke: variables.$color-blue-10;
+    }
+  }
+}
+
+.search-input {
+  max-width: 480px;
+  padding: 15px 280px 15px 48px;
+  color: variables.$color-blue-10;
+
+  &::placeholder {
+    color: variables.$color-blue-9;
+    transition: color 0.3s ease;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  path {
+    fill: transparent;
+    stroke: variables.$color-blue-9;
+    transition: fill 0.3s ease, stroke 0.3s ease;
+  }
+}
+
+.search-button {
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 0 8px 8px 0;
+  padding: 15px 13px;
+  width: 104px;
+  background: variables.$gradient-orange;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: variables.$color-orange-3;
+  }
+}

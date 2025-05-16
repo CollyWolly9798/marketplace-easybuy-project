@@ -1,0 +1,58 @@
+@use '@/styles/variables';
+
+.wrapper {
+  position: relative;
+}
+
+.button {
+  font-weight: 600;
+  line-height: 1.25;
+  color: variables.$color-white-4;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: variables.$color-white-1;
+    box-shadow: 0 0 14px 0 rgba(201, 223, 255, 0.52);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    transform: scale(1.1);
+    border-width: 4px;
+    border-color: variables.$color-white-1;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  color: black;
+
+  li {
+    padding: 10px 65px;
+    cursor: pointer;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}

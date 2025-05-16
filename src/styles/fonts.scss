@@ -1,0 +1,44 @@
+// Inter
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter24pt-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter18pt-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter18pt-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter/Inter24pt-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+// DM Sans
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans/DMSans18pt-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+// ZenDots
+@font-face {
+  font-family: 'Zen Dots';
+  src: url('/fonts/ZenDots/ZenDots-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}

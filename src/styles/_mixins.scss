@@ -1,0 +1,22 @@
+@mixin flex-center-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Button mixin
+@mixin circle-button($size, $position, $image) {
+  position: absolute;
+  bottom: 72px;
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  background-image: url($image);
+  #{$position}: 55px;
+}

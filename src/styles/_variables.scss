@@ -1,0 +1,42 @@
+// Fonts
+$font-inter: 'Inter', sans-serif;
+$font-dm: 'DM Sans', sans-serif;
+$font-zen: 'Zen Dots', cursive;
+
+// Colors
+$color-white-1: #ffffff;
+$color-white-2: #fff5ee;
+$color-white-3: #cdd4da;
+$color-white-4: #fff5ec;
+$color-white-5: #f9f6ee;
+$color-white-6: #f8f9fb;
+
+$color-black-1: #000000;
+
+$color-pink-1: #e8639e;
+$color-pink-2: #fd1353;
+
+$color-blue-1: #104c9a;
+$color-blue-2: #003366;
+$color-blue-3: #003366;
+$color-blue-4: #1f487e;
+$color-blue-5: #5a7dab;
+$color-blue-6: #0a3f83;
+$color-blue-7: #5aa1ff;
+$color-blue-8: #5e7ea6;
+$color-blue-9: #829cbc;
+$color-blue-10: #022652;
+
+$color-orange-1: #ff7400;
+$color-orange-2: #df4300;
+$color-orange-3: #bd4000;
+
+$background-page-color: #f8f9fb;
+
+// Shadow
+$shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 0 16px 32px rgba(0, 0, 0, 0.06);
+
+// Gradient
+$gradient-orange: linear-gradient(180deg, $color-orange-1 0%, $color-orange-2 100%);
+$gradient-blue: linear-gradient(180deg, $color-blue-6 0%, $color-blue-7 100%);
+$gradient-blue-2: linear-gradient(0deg, #4b99ff 0%, #3e5b7e 54.72%, #071739 100%);

@@ -1,0 +1,20 @@
+@use '@/styles/variables';
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  path {
+    fill: transparent;
+    stroke: variables.$color-white-2;
+    transition: fill 0.2s;
+  }
+
+  &:hover path,
+  &:focus path {
+    fill: variables.$color-white-2;
+  }
+}

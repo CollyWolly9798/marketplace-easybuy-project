@@ -1,0 +1,21 @@
+@use '@/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  column-gap: 8px;
+  margin-right: 35px;
+}
+
+.link {
+  display: flex;
+  color: variables.$color-white-1;
+  column-gap: 20px;
+  font-weight: 500;
+}

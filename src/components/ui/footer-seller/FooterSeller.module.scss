@@ -3,6 +3,7 @@
 .wrapper {
   color: variables.$color-white-1;
   line-height: 1.5;
+  max-width: 425px;
 }
 
 .title {
@@ -17,7 +18,7 @@
 }
 
 .list {
-  margin-left: 28px;
+  margin-left: 32px;
   margin-bottom: 22px;
   li {
     list-style: disc;

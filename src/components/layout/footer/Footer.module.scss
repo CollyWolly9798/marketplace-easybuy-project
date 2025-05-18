@@ -1,0 +1,31 @@
+@use '@/styles/variables.scss';
+
+.footer {
+  background-color: #104c9a;
+  height: 100%;
+  padding-top: 24px;
+  padding-bottom: 31px;
+}
+
+.container {
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+.logo {
+  max-width: 240px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  max-width: 65%;
+  margin-top: -35px;
+}

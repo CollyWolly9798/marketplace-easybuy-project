@@ -3,16 +3,7 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  column-gap: 204px;
-}
-
-.list {
-  height: 89px;
-  flex-wrap: wrap;
-
-  li {
-    max-width: 217px;
-  }
+  column-gap: 280px;
 }
 
 .link {

@@ -1,0 +1,15 @@
+@use '@/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  column-gap: 68px;
+  height: 37px;
+  align-items: center;
+}
+
+.icons {
+  path {
+    fill: variables.$color-white-2;
+    stroke: variables.$color-white-2;
+  }
+}

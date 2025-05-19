@@ -1,13 +1,8 @@
 @use '@/styles/variables';
+@use '@/styles/mixins.scss';
 
 .link {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-weight: 500;
-  color: variables.$color-white-2;
-  cursor: pointer;
-  transition: transform 0.2s;
+  @include mixins.header-button(variables.$color-white-4, variables.$color-white-1, 16px);
 
   &:hover,
   &:focus {
@@ -19,6 +14,7 @@
   }
 
   .icon {
+    margin-right: 16px;
     path {
       fill: transparent;
       stroke: variables.$color-white-2;

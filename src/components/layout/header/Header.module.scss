@@ -1,4 +1,6 @@
 @use '@/styles/variables';
+@use '@/styles/mixins.scss';
+
 .header {
   border-bottom: 4px solid variables.$color-blue-8;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -16,7 +18,5 @@
 }
 
 .sale {
-  font-weight: 500;
-  font-size: 32px;
-  color: variables.$color-white-2;
+  @include mixins.header-button(variables.$color-white-4, variables.$color-white-1, 32px);
 }

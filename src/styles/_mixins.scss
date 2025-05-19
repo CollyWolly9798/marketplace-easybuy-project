@@ -20,3 +20,33 @@
   background-image: url($image);
   #{$position}: 55px;
 }
+
+@mixin header-button($color, $bColor, $size) {
+  font-weight: 600;
+  line-height: 1.25;
+  color: $color;
+  font-size: $size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  box-shadow: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    border-color: $bColor;
+    box-shadow: 0 0 14px 0 rgba(201, 223, 255, 0.52);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &:active {
+    transform: scale(1.1);
+    border-width: 4px;
+    border-color: $bColor;
+  }
+}

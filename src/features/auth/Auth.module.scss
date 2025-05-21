@@ -1,0 +1,22 @@
+@use '@/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  max-width: 540px;
+  font-family: variables.$font-dm;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.text {
+  color: variables.$color-blue-11;
+}
+
+.btn {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  margin-left: 12px;
+  color: variables.$color-blue-12;
+}

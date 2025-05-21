@@ -16,7 +16,7 @@ export default function ProductCard({ isOnSale, image, title, brand, price, oldP
     <div className='product-card'>
       <div className='img-wrapper'>
         {isOnSale && <div className='badge'>On Sale</div>}
-        <Image src={image} alt={title} className='product-image' width={396} height={544} />
+        <Image src={image} alt={title} width={396} height={544} />
         <StarRating initialRating={3} />
       </div>
       <button className='favorite-btn' onClick={toggleFavorite}>

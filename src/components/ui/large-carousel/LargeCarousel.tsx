@@ -23,7 +23,7 @@ const LargeCarousel: React.FC<LargeCarouselProps> = ({ slides }) => {
       <Carousel activeIndex={index} onSelect={handleSelect}>
         {slides.map(slide => (
           <Carousel.Item key={slide.id}>
-            <Image className='carousel-image' width={1680} height={670} src={slide.image} alt={slide.title} />
+            <Image width={1680} height={670} src={slide.image} alt={slide.title} />
             <Carousel.Caption>
               <div className='text-up'>
                 <div className='text-up tittle'>

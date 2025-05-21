@@ -1,4 +1,5 @@
 import Image from 'next/image.js';
+import PumaIcon from '@/components/icons/PumaIcon.jsx';
 import './FavoritePromo.scss';
 
 export default function FavoritePromo() {
@@ -7,7 +8,7 @@ export default function FavoritePromo() {
       <div className='promo-content'>
         <div className='promo-text'>
           <p className='promo-discount'>-30%</p>
-          <Image src='/img/icons/puma-logo 1.svg' alt='Puma Logo' className='brand-logo' width={396} height={220} />
+          <PumaIcon />
         </div>
         <div className='promo-image'>
           <Image src='/img/cross puma.png' alt='Puma Shoe' width={809} height={439} />

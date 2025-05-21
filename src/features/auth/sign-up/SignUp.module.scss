@@ -1,7 +1,7 @@
 @use '@/styles/variables';
 @use '@/styles/mixins.scss';
 
-.link {
+.btn {
   @include mixins.header-button(variables.$color-white-4, variables.$color-white-1, 16px);
 
   &:hover,

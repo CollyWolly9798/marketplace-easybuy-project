@@ -1,0 +1,72 @@
+@use '@/styles/variables.scss';
+@use '@/styles/mixins.scss';
+
+.formWrapper {
+  @include mixins.formWrapper();
+}
+
+.title {
+  @include mixins.formTitle();
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 540px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.label {
+  margin-bottom: 8px;
+}
+
+.passwordField {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    width: 100%;
+  }
+
+  .toggleBtn {
+    width: 24px;
+    height: 24px;
+    top: 12px;
+    right: 12px;
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.submitBtn {
+  @include mixins.buttonBase();
+  margin-bottom: 12px;
+}
+
+.input {
+  @include mixins.inputBase();
+}
+
+.checkbox {
+  display: flex;
+  column-gap: 8px;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.err {
+  @include mixins.error(variables.$errorColor);
+}

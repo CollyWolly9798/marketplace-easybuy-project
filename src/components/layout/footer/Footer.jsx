@@ -1,4 +1,3 @@
-import Image from 'next/image.js';
 import Logo from '@/components/ui/logo/Logo.jsx';
 import FooterList from '@/components/ui/footer-list/FooterList.jsx';
 import FooterSeller from '@/components/ui/footer-seller/FooterSeller.jsx';

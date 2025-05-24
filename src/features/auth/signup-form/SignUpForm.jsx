@@ -9,9 +9,9 @@ import style from './SignUpForm.module.scss';
 
 const registrationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
-  number: Yup.string()
-    .matches(/^\+380\d{9}$/, 'Enter a valid phone number (e.g. +380991234567)')
-    .required('Phone number is required'),
+  // number: Yup.string()
+  //   .matches(/^\+380\d{9}$/, 'Enter a valid phone number (e.g. +380991234567)')
+  //   .required('Phone number is required'),
   password: Yup.string()
     .min(8, 'Password must be at least 8 characters long')
     .max(20, 'Password cannot exceed 20 characters')
@@ -20,7 +20,7 @@ const registrationSchema = Yup.object().shape({
     .matches(/[0-9]/, 'Password must contain at least one number')
     .matches(/[^a-zA-Z0-9]/, 'Password must contain at least one special character')
     .required('Password is required'),
-  repeatPassword: Yup.string()
+  confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Please confirm your password'),
   agreement: Yup.boolean().oneOf([true], 'You must accept the User Agreement').required('Required'),
@@ -29,7 +29,7 @@ const registrationSchema = Yup.object().shape({
 
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showRepeatPassword, setShowRepeatPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = (values, actions) => {
     console.log(values);
@@ -41,7 +41,7 @@ const SignUpForm = () => {
       <h1 className={style.title}>Sign up</h1>
       <Formik
         validationSchema={registrationSchema}
-        initialValues={{ email: '', number: '', password: '', repeatPassword: '', agreement: '', privacy: '' }}
+        initialValues={{ email: '', password: '', confirmPassword: '', agreement: '', privacy: '' }}
         onSubmit={handleSubmit}
       >
         <Form className={style.form}>
@@ -52,13 +52,13 @@ const SignUpForm = () => {
             <Field className={style.input} type='email' name='email' id='email' placeholder='Enter Email' />
             <ErrorMessage className={style.err} name='email' component='span' />
           </div>
-          <div className={style.wrapper}>
+          {/* <div className={style.wrapper}>
             <label className={style.label} htmlFor='number'>
               Phone Number
             </label>
             <Field className={style.input} type='tel' name='number' id='number' placeholder='+38' />
             <ErrorMessage className={style.err} name='number' component='span' />
-          </div>
+          </div> */}
           <div className={style.wrapper}>
             <label className={style.label} htmlFor='password'>
               Password
@@ -79,21 +79,21 @@ const SignUpForm = () => {
           </div>
           <div className={style.wrapper}>
             <label className={style.label} htmlFor='repeatPassword'>
-              Repeat Password
+              Confirm Password
             </label>
             <div className={style.passwordField}>
               <Field
                 className={style.input}
-                type={showRepeatPassword ? 'text' : 'password'}
-                id='repeatPassword'
-                name='repeatPassword'
-                placeholder='Repeat Password'
+                type={showConfirmPassword ? 'text' : 'password'}
+                id='confirmPassword'
+                name='confirmPassword'
+                placeholder='Confirm Password'
               />
-              <button type='button' onClick={() => setShowRepeatPassword(prev => !prev)} className={style.toggleBtn}>
-                {showRepeatPassword ? <HideIcon /> : <ShowIcon />}
+              <button type='button' onClick={() => setShowConfirmPassword(prev => !prev)} className={style.toggleBtn}>
+                {showConfirmPassword ? <HideIcon /> : <ShowIcon />}
               </button>{' '}
             </div>
-            <ErrorMessage className={style.err} name='repeatPassword' component='span' />
+            <ErrorMessage className={style.err} name='confirmPassword' component='span' />
           </div>
           <div>
             <label className={style.checkbox}>
@@ -110,7 +110,7 @@ const SignUpForm = () => {
             <ErrorMessage className={style.err} name='privacy' component='span' />
           </div>
           <button className={style.submitBtn} type='submit'>
-            Next
+            Confirm
           </button>
         </Form>
       </Formik>

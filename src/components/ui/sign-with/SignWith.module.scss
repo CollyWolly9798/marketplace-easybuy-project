@@ -1,0 +1,51 @@
+@use '@/styles/variables';
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: variables.$color-grey;
+  text-align: center;
+  margin-bottom: 29px;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: variables.$color-grey;
+  }
+
+  &::before {
+    margin-right: 12px;
+  }
+
+  &::after {
+    margin-left: 12px;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: variables.$color-white-8;
+  border-radius: 8px;
+  height: 44px;
+  padding: 0 12px;
+}
+
+.company {
+  font-family: variables.$font-dm;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.4;
+  color: variables.$color-grey-1;
+  margin-left: 4px;
+  margin-right: 43px;
+}

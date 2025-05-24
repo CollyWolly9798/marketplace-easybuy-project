@@ -90,9 +90,10 @@
   line-height: 1.5;
   width: 100%;
   box-sizing: border-box;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 
   &:focus {
+    box-shadow: 0 0 10px 5px rgba(198, 223, 255, 0.21);
     border-color: variables.$inputColor;
     color: variables.$color-blue-1;
   }

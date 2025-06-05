@@ -6,6 +6,8 @@ import { useState } from 'react';
 import HideIcon from '@/components/icons/HideIcon.jsx';
 import ShowIcon from '@/components/icons/ShowIcon.jsx';
 import style from './SignUpForm.module.scss';
+import { useDispatch } from 'react-redux';
+import { register } from '@/lib/redux/auth/operations';
 
 const registrationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -28,11 +30,12 @@ const registrationSchema = Yup.object().shape({
 });
 
 const SignUpForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
+    dispatch(register(values));
     actions.resetForm();
   };
 

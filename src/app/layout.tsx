@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Footer from '@/components/layout/footer/Footer';
 import Header from '@/components/layout/header/Header';
+import StoreProvider from '@/app/StoreProvider';
 import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
@@ -16,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <div className='layout'>
-          <Header />
-          <main className='main-content'>{children}</main>
-          <Footer />
-        </div>
+        <StoreProvider>
+          <div className='layout'>
+            <Header />
+            <main className='main-content'>{children}</main>
+            <Footer />
+          </div>
+        </StoreProvider>
       </body>
     </html>
   );

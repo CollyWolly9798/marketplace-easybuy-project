@@ -6,6 +6,7 @@ import HideIcon from '@/components/icons/HideIcon.jsx';
 import ShowIcon from '@/components/icons/ShowIcon.jsx';
 import style from './SignInForm.module.scss';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -20,6 +21,7 @@ const loginSchema = Yup.object().shape({
 });
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (values, actions) => {

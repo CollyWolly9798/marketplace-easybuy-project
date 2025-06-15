@@ -1,4 +1,5 @@
 @use '@/styles/variables';
+@use '@/styles/mixins';
 
 .search-wrapper {
   display: flex;
@@ -9,7 +10,7 @@
   position: relative;
   flex-grow: 1;
   background-color: variables.$color-white-6;
-  border-radius: 8px 0 0 8px;
+  border-radius: 4px;
 
   // Focus input
   &:focus-within {
@@ -25,8 +26,9 @@
 }
 
 .search-input {
-  max-width: 480px;
-  padding: 15px 280px 15px 48px;
+  font-size: 12px;
+  max-width: 159px;
+  padding: 6px 12px 6px 36px;
   color: variables.$color-blue-10;
 
   &::placeholder {
@@ -38,7 +40,7 @@
 .search-icon {
   position: absolute;
   top: 50%;
-  left: 15px;
+  left: 12px;
   transform: translateY(-50%);
   pointer-events: none;
 
@@ -50,6 +52,7 @@
 }
 
 .search-button {
+  display: none;
   font-size: 16px;
   font-weight: 500;
   border-radius: 0 8px 8px 0;
@@ -60,5 +63,25 @@
 
   &:hover {
     background: variables.$color-orange-3;
+  }
+}
+
+@include mixins.desktop {
+  .search-field {
+    border-radius: 8px 0 0 8px;
+  }
+
+  .search-input {
+    font-size: 16px;
+    max-width: 480px;
+    padding: 15px 280px 15px 48px;
+  }
+
+  .search-icon {
+    left: 15px;
+  }
+
+  .search-button {
+    display: block;
   }
 }

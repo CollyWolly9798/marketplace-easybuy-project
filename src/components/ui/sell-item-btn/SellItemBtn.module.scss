@@ -1,4 +1,5 @@
 @use '@/styles/variables';
+@use '@/styles/mixins';
 
 .btn {
   font-weight: 700;
@@ -10,4 +11,11 @@
   color: variables.$color-white-1;
   border-radius: 8px;
   background: variables.$gradient-orange;
+  margin-bottom: 60px;
+}
+
+@include mixins.desktop {
+  .btn {
+    margin-bottom: 0;
+  }
 }

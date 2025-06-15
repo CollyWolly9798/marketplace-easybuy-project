@@ -5,10 +5,11 @@
   border-bottom: 4px solid variables.$color-blue-8;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background-color: variables.$color-blue-1;
-  margin-bottom: 52px;
+  margin-bottom: 20px;
 
   nav {
-    max-width: 1680px;
+    width: 100%;
+    max-width: 343px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -17,6 +18,25 @@
   }
 }
 
+.header {
+  @include mixins.desktop {
+    margin-bottom: 52px;
+
+    nav {
+      max-width: 1680px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0px;
+    }
+  }
+}
+
 .sale {
   @include mixins.header-button(variables.$color-white-4, variables.$color-white-1, 32px);
+  display: none;
+  @include mixins.desktop {
+    display: block;
+  }
 }

@@ -5,6 +5,7 @@ const linkGroups = [
   ['Catalogue', 'Contacts', 'Sale'],
   ['Delivery and payment', 'Guarantee', 'Product return'],
   ['Support', 'News', 'Marketplace Guide'],
+  ['User Agreement', 'Privacy Policy'],
 ];
 
 const FooterList = () => {
@@ -12,13 +13,16 @@ const FooterList = () => {
     <div className={style.wrapper}>
       {linkGroups.map((group, groupI) => (
         <ul key={groupI} className={style.list}>
-          {group.map((text, textI) => (
-            <li key={textI}>
-              <Link href='!#' className={style.link}>
-                {text}
-              </Link>
-            </li>
-          ))}
+          {group.map((text, textI) => {
+            const isMobileOnly = text === 'User Agreement' || text === 'Privacy Policy';
+            return (
+              <li key={textI} className={isMobileOnly ? style.mobile : undefined}>
+                <Link href='!#' className={style.link}>
+                  {text}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       ))}
     </div>

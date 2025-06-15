@@ -1,15 +1,23 @@
 @use '@/styles/variables.scss';
+@use '@/styles/mixins';
 
 .wrapper {
   display: flex;
-  column-gap: 68px;
-  height: 37px;
+  justify-content: space-around;
   align-items: center;
+  margin-bottom: 34px;
 }
 
 .icons {
   path {
     fill: variables.$color-white-2;
     stroke: variables.$color-white-2;
+  }
+}
+
+@include mixins.desktop {
+  .wrapper {
+    margin-bottom: 0;
+    column-gap: 68px;
   }
 }

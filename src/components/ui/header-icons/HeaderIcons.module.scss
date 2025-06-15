@@ -1,9 +1,15 @@
 @use '@/styles/variables';
+@use '@/styles/mixins';
 
 .list {
   display: flex;
   align-items: center;
   gap: 20px;
+
+  li:nth-child(1),
+  li:nth-child(2) {
+    display: none;
+  }
 }
 
 .icon {
@@ -16,5 +22,14 @@
   &:hover path,
   &:focus path {
     fill: variables.$color-white-2;
+  }
+}
+
+@include mixins.desktop {
+  .list {
+    li:nth-child(1),
+    li:nth-child(2) {
+      display: flex;
+    }
   }
 }

@@ -1,7 +1,9 @@
 @use '@/styles/variables.scss';
+@use '@/styles/mixins';
 
 .wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -14,8 +16,14 @@
 }
 
 .link {
-  display: flex;
-  color: variables.$color-white-1;
-  column-gap: 20px;
-  font-weight: 500;
+  display: none;
+}
+
+@include mixins.desktop {
+  .link {
+    display: flex;
+    color: variables.$color-white-1;
+    column-gap: 20px;
+    font-weight: 500;
+  }
 }

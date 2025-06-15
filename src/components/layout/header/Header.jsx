@@ -5,11 +5,13 @@ import SearchBox from '@/components/ui/search-box/SearchBox.jsx';
 import HeaderIcons from '@/components/ui/header-icons/HeaderIcons.jsx';
 import SignUp from '@/features/auth/sign-up/SignUp.jsx';
 import style from './Header.module.scss';
+import BurgerButton from '@/components/ui/burger-btn/BurgerBtn.tsx';
 
 const Header = () => {
   return (
     <header className={style.header}>
       <nav className={style.nav}>
+        <BurgerButton />
         <Logo />
         <DropdownBtn />
         <Link className={style.sale} href='/sale'>

@@ -1,26 +1,51 @@
 @use '@/styles/variables';
+@use '@/styles/mixins';
 
 .wrapper {
   color: variables.$color-white-1;
   line-height: 1.5;
-  max-width: 425px;
 }
 
 .title {
   font-weight: 700;
-  font-size: 24px;
-  margin-bottom: 8px;
+  font-size: 38px;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .subtitle {
-  font-weight: 500;
-  margin-bottom: 16px;
+  display: none;
 }
 
 .list {
-  margin-left: 32px;
-  margin-bottom: 22px;
-  li {
-    list-style: disc;
+  display: none;
+}
+
+@include mixins.desktop {
+  .wrapper {
+    max-width: 425px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .list {
+    display: block;
+    margin-left: 32px;
+    margin-bottom: 22px;
+    li {
+      list-style: disc;
+    }
   }
 }

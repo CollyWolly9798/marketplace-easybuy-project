@@ -1,5 +1,17 @@
 @use '@/styles/variables.scss';
 
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
 @mixin flex-center-space-between {
   display: flex;
   justify-content: space-between;

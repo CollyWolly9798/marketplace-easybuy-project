@@ -1,14 +1,55 @@
 @use '@/styles/variables';
+@use '@/styles/mixins';
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
-  column-gap: 280px;
+  flex-direction: column;
+
+  li {
+    margin-bottom: 16px;
+  }
+
+  margin-bottom: 32px;
 }
 
 .link {
-  font-size: 20px;
+  font-size: 24px;
   color: variables.$color-white-1;
-  font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.33;
+}
+
+.mobile {
+  display: block;
+
+  @include mixins.desktop {
+    display: none;
+  }
+}
+
+@include mixins.desktop {
+  .wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 280px;
+
+    li {
+      margin-bottom: 0px;
+    }
+    margin-bottom: 0;
+  }
+
+  .list {
+    min-width: 217px;
+  }
+
+  .list:last-child {
+    display: none;
+  }
+
+  .link {
+    font-size: 20px;
+    font-weight: 500;
+    color: variables.$color-white-1;
+    line-height: 1.25;
+  }
 }

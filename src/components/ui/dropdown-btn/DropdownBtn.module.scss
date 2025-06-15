@@ -2,6 +2,7 @@
 @use '@/styles/mixins.scss';
 
 .wrapper {
+  display: none;
   position: relative;
 }
 
@@ -30,5 +31,11 @@
     &:hover {
       background: #f0f0f0;
     }
+  }
+}
+
+.wrapper {
+  @include mixins.desktop {
+    display: block;
   }
 }

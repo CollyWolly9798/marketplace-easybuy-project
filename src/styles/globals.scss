@@ -1,8 +1,8 @@
 @use './variables';
 @use './mixins';
 @use './fonts';
-@use './reset';
-@import 'tailwindcss';
+@use 'tailwindcss';
+@use 'tailwindcss/utilities';
 
 html,
 body {
@@ -26,6 +26,15 @@ body {
   overflow-x: hidden;
   color: variables.$color-white-2;
   background-color: variables.$background-page-color;
+}
+
+a,
+input,
+textarea,
+button,
+select {
+  outline: none;
+  box-shadow: none;
 }
 
 .catalogue-container {

@@ -10,12 +10,12 @@ import PaymentIcon from '@/components/icons/mobile/PaymentIcon.jsx';
 import RightArrIcon from '@/components/icons/mobile/RightArrIcon.jsx';
 
 const sections = {
-  personal: { label: 'Personal data', icon: <ProfileIcon /> },
+  personalData: { label: 'Personal data', icon: <ProfileIcon /> },
   orders: { label: 'My Orders', icon: <OrderIcon /> },
   cart: { label: 'Cart', icon: <CartIcon /> },
   message: { label: 'Message', icon: <MessageIcon /> },
   wishlist: { label: 'Wishlist', icon: <WishListIcon /> },
-  compare: { label: 'Products to Compare', icon: <CompareIcon /> },
+  product: { label: 'Products to Compare', icon: <CompareIcon /> },
   payment: { label: 'Payment', icon: <PaymentIcon /> },
 };
 

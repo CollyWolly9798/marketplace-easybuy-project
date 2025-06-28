@@ -20,7 +20,7 @@ export default function RootLayout({
         <StoreProvider>
           <div className='layout'>
             <Header />
-            <main className='flex justify-center '>{children}</main>
+            <main>{children}</main>
             <Footer />
           </div>
         </StoreProvider>

@@ -8,9 +8,11 @@ import '@/styles/globals.scss';
 const UserPanel = () => {
   const [activeSection, setActiveSection] = useState('menu');
   return (
-    <aside className=' mx-4 mb-13 max-w-[343px] w-full bg-white rounded-[16px] shadow-lg py-3'>
+    <aside>
       {activeSection === 'menu' ? (
-        <Menu setActiveSection={setActiveSection} />
+        <div className='mx-4 mb-13 max-w-[343px] w-full rounded-[16px] shadow-lg py-3'>
+          <Menu setActiveSection={setActiveSection} />
+        </div>
       ) : (
         <SectionContent sectionKey={activeSection} onBack={() => setActiveSection('menu')} />
       )}

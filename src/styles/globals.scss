@@ -61,3 +61,12 @@ select {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.input-shadow {
+  box-shadow: 0 0 0 4px rgba(78, 70, 180, 0.2);
+}
+
+.gradient-button {
+  background: linear-gradient(0deg, #4b99ff 0%, #3e5b7e 54.72%, #071739 100%);
+  color: white;
+}

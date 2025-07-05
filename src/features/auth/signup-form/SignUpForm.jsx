@@ -1,42 +1,56 @@
-'use client';
+"use client";
 
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import * as Yup from 'yup';
-import { useState } from 'react';
-import HideIcon from '@/components/icons/HideIcon.jsx';
-import ShowIcon from '@/components/icons/ShowIcon.jsx';
-import style from './SignUpForm.module.scss';
-import { useDispatch } from 'react-redux';
-import { register } from '@/lib/redux/auth/operations';
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import * as Yup from "yup";
+import { useState } from "react";
+import HideIcon from "@/components/icons/HideIcon.jsx";
+import ShowIcon from "@/components/icons/ShowIcon.jsx";
+import style from "./SignUpForm.module.scss";
+import { useDispatch } from "react-redux";
+import { register } from "@/lib/redux/auth/operations";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const registrationSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
+  email: Yup.string().email("Invalid email").required("Required"),
   // number: Yup.string()
   //   .matches(/^\+380\d{9}$/, 'Enter a valid phone number (e.g. +380991234567)')
   //   .required('Phone number is required'),
   password: Yup.string()
-    .min(8, 'Password must be at least 8 characters long')
-    .max(20, 'Password cannot exceed 20 characters')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(/[^a-zA-Z0-9]/, 'Password must contain at least one special character')
-    .required('Password is required'),
+    .min(8, "Password must be at least 8 characters long")
+    .max(20, "Password cannot exceed 20 characters")
+    .matches(/[a-z]/, "Password must contain at least one lowercase letter")
+    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "Password must contain at least one number")
+    .matches(/[^a-zA-Z0-9]/, "Password must contain at least one special character")
+    .required("Password is required"),
   confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    .required('Please confirm your password'),
-  agreement: Yup.boolean().oneOf([true], 'You must accept the User Agreement').required('Required'),
-  privacy: Yup.boolean().oneOf([true], 'You must accept the Privacy Policy').required('Required'),
+    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .required("Please confirm your password"),
+  agreement: Yup.boolean().oneOf([true], "You must accept the User Agreement").required("Required"),
+  privacy: Yup.boolean().oneOf([true], "You must accept the Privacy Policy").required("Required"),
 });
 
 const SignUpForm = () => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const handleSubmit = (values, actions) => {
-    dispatch(register(values));
-    actions.resetForm();
+  const handleSubmit = async (values, actions) => {
+    try {
+      const result = await dispatch(register(values));
+
+      if (register.fulfilled.match(result)) {
+        router.push("/check-email");
+      } else {
+        toast.error(result.payload || "Помилка реєстрації");
+      }
+    } catch (error) {
+      toast.error("Невідома помилка");
+    } finally {
+      actions.resetForm();
+    }
   };
 
   return (
@@ -44,7 +58,14 @@ const SignUpForm = () => {
       <h1 className={style.title}>Sign up</h1>
       <Formik
         validationSchema={registrationSchema}
-        initialValues={{ email: '', password: '', confirmPassword: '', agreement: '', privacy: '' }}
+        initialValues={{
+          email: "",
+          password: "",
+          confirmPassword: "",
+          agreement: false,
+          privacy: false,
+          role: "CUSTOMER",
+        }}
         onSubmit={handleSubmit}
       >
         <Form className={style.form}>
@@ -69,7 +90,7 @@ const SignUpForm = () => {
             <div className={style.passwordField}>
               <Field
                 className={style.input}
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 name='password'
                 id='password'
                 placeholder='Enter Password'
@@ -87,14 +108,14 @@ const SignUpForm = () => {
             <div className={style.passwordField}>
               <Field
                 className={style.input}
-                type={showConfirmPassword ? 'text' : 'password'}
+                type={showConfirmPassword ? "text" : "password"}
                 id='confirmPassword'
                 name='confirmPassword'
                 placeholder='Confirm Password'
               />
               <button type='button' onClick={() => setShowConfirmPassword(prev => !prev)} className={style.toggleBtn}>
                 {showConfirmPassword ? <HideIcon /> : <ShowIcon />}
-              </button>{' '}
+              </button>{" "}
             </div>
             <ErrorMessage className={style.err} name='confirmPassword' component='span' />
           </div>

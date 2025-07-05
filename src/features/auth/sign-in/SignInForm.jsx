@@ -1,38 +1,57 @@
-'use client';
+"use client";
 
-import { Form, Formik, ErrorMessage, Field } from 'formik';
-import * as Yup from 'yup';
-import HideIcon from '@/components/icons/HideIcon.jsx';
-import ShowIcon from '@/components/icons/ShowIcon.jsx';
-import style from './SignInForm.module.scss';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { Form, Formik, ErrorMessage, Field } from "formik";
+import * as Yup from "yup";
+import HideIcon from "@/components/icons/HideIcon.jsx";
+import ShowIcon from "@/components/icons/ShowIcon.jsx";
+import style from "./SignInForm.module.scss";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { login } from "@/lib/redux/auth/operations.ts";
 
 const loginSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
+  email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
-    .min(8, 'Password must be at least 8 characters long')
-    .max(20, 'Password cannot exceed 20 characters')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(/[^a-zA-Z0-9]/, 'Password must contain at least one special character')
-    .required('Password is required'),
+    .min(8, "Password must be at least 8 characters long")
+    .max(20, "Password cannot exceed 20 characters")
+    .matches(/[a-z]/, "Password must contain at least one lowercase letter")
+    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "Password must contain at least one number")
+    .matches(/[^a-zA-Z0-9]/, "Password must contain at least one special character")
+    .required("Password is required"),
 });
 
 const SignInForm = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (values, actions) => {
-    console.log(values);
+  const handleSubmit = async (values, actions) => {
+    try {
+      const result = await dispatch(login(values));
+
+      if (result.meta.requestStatus === "fulfilled") {
+        console.log("Login successful");
+        router.push("/dashboard");
+      } else {
+        toast.error(result.payload || "Login failed");
+      }
+    } catch (error) {
+      toast.error("An unknown error occurred during login");
+    } finally {
+      actions.setSubmitting(false);
+    }
   };
+
   return (
     <div className={style.formWrapper}>
       <h1 className={style.title}>Log in</h1>
       <Formik
         validationSchema={loginSchema}
-        initialValues={{ email: '', password: '', rememberMe: '' }}
+        initialValues={{ email: "", password: "" }}
+        // rememberMe: ''
         onSubmit={handleSubmit}
       >
         <Form className={style.form}>
@@ -50,7 +69,7 @@ const SignInForm = () => {
             <div className={style.passwordField}>
               <Field
                 className={style.input}
-                type={showPassword ? 'text' : 'password'}
+                type={showPassword ? "text" : "password"}
                 name='password'
                 id='password'
                 placeholder='Enter Password'

@@ -1,12 +1,12 @@
-interface User {
-  email: string | null;
-}
-
 export interface AuthState {
-  user: User;
+  user: {
+    email: string | null;
+  };
   token: string | null;
   isLoggedIn: boolean;
   isRefreshing: boolean;
+  isLoading: boolean;
+  needsEmailVerification: boolean;
 }
 
 export type Credentials = {

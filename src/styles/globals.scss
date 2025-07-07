@@ -1,8 +1,8 @@
-@use './variables';
-@use './mixins';
-@use './fonts';
-@use 'tailwindcss';
-@use 'tailwindcss/utilities';
+@use "./variables";
+@use "./mixins";
+@use "./fonts";
+@use "tailwindcss";
+@use "tailwindcss/utilities";
 
 html,
 body {
@@ -37,7 +37,7 @@ select {
   box-shadow: none;
 }
 
-.catalogue-container {
+.home-container {
   max-width: 1680px;
   margin: 0 auto;
   padding-bottom: 40px;

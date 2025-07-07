@@ -1,12 +1,12 @@
-import Promo from '@/features/catalogue/Promo/Promo';
-import FavoriteBrands from '@/features/catalogue/FavoriteBrands/FavoriteBrands';
-import UkrainianBrands from '@/features/catalogue/UkrainianBrands/UkrainianBrands';
-import Recommendations from '@/features/catalogue/Recommendations/Recommendations';
-import '@/styles/globals.scss';
+import Promo from "@/features/home/Promo/Promo";
+import FavoriteBrands from "@/features/home/FavoriteBrands/FavoriteBrands";
+import UkrainianBrands from "@/features/home/UkrainianBrands/UkrainianBrands";
+import Recommendations from "@/features/home/Recommendations/Recommendations";
+import "@/styles/globals.scss";
 
-const Catalogue = () => {
+const Home = () => {
   return (
-    <div className='catalogue-container'>
+    <div className='home-container'>
       <Promo />
       <FavoriteBrands />
       <UkrainianBrands />
@@ -15,4 +15,4 @@ const Catalogue = () => {
   );
 };
 
-export default Catalogue;
+export default Home;

@@ -8,6 +8,9 @@ import WishListIcon from '@/components/icons/mobile/WishListIcon.jsx';
 import CompareIcon from '@/components/icons/mobile/CompareIcon.jsx';
 import PaymentIcon from '@/components/icons/mobile/PaymentIcon.jsx';
 import RightArrIcon from '@/components/icons/mobile/RightArrIcon.jsx';
+import {useDispatch} from "react-redux";
+import {logOut} from "@/lib/redux/auth/operations";
+import PrivateRoute from "@/features/auth/private-route/PrivateRoute";
 
 const sections = {
   personalData: { label: 'Personal data', icon: <ProfileIcon /> },
@@ -20,8 +23,13 @@ const sections = {
 };
 
 const Menu = ({ setActiveSection }) => {
+    const dispatch = useDispatch() ;
+
+    const handleLogout = () => {
+        dispatch(logOut())
+    }
   return (
-    <>
+    <PrivateRoute>
       <div className='flex items-center justify-center gap-6 mb-5'>
         <Image src='/img/avatar.png' alt='Avatar' width={48} height={48} className='rounded-full object-cover' />
         <div>
@@ -46,10 +54,10 @@ const Menu = ({ setActiveSection }) => {
         <p className='text-gray-500 text-[20px] pl-7  hover:text-blue-900 transition'>Help Center</p>
       </div>
 
-      <button className='flex mx-auto py-3 px-12 border border-blue-800 text-blue-800 rounded-lg hover:bg-blue-50 transition'>
+      <button className='flex mx-auto py-3 px-12 border border-blue-800 text-blue-800 rounded-lg hover:bg-blue-50 transition'onClick={handleLogout}>
         Log out
       </button>
-    </>
+    </PrivateRoute>
   );
 };
 

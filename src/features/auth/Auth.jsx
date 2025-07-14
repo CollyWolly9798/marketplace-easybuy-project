@@ -7,7 +7,6 @@ import SignWith from '@/components/ui/sign-with/SignWith.jsx';
 import GoogleAuthIcon from '@/components/icons/GoogleAuthIcon.jsx';
 import FacebookAuthIcon from '@/components/icons/FacebookAuthIcon.jsx';
 import AppleAuthIcon from '@/components/icons/AppleAuthIcon.jsx';
-import style from './Auth.module.scss';
 
 const providers = [
   { icon: GoogleAuthIcon, name: 'Google', href: '!#' },
@@ -18,31 +17,31 @@ const providers = [
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(false);
   return (
-    <div className={style.container}>
-      {isLogin ? (
-        <>
-          <SignInForm />
-          <div className={style.wrapper}>
-            <p className={style.text}>Don't have an account?</p>
-            <button className={style.btn} onClick={() => setIsLogin(false)}>
-              Sing up
-            </button>
-          </div>
-          <SignWith providers={providers} />
-        </>
-      ) : (
-        <>
-          <SignUpForm />
-          <div className={style.wrapper}>
-            <p className={style.text}>Already have an account?</p>
-            <button className={style.btn} onClick={() => setIsLogin(true)}>
-              Log in
-            </button>
-          </div>
-          <SignWith providers={providers} />
-        </>
-      )}
-    </div>
+      < >
+        {isLogin ? (
+            <>
+              <SignInForm />
+              <div className="flex gap-3 justify-end ">
+                <p className="text-blue-950">Don't have an account?</p>
+                <button className="text-blue-500 underline" onClick={() => setIsLogin(false)}>
+                  Sing up
+                </button>
+              </div>
+              <SignWith providers={providers} />
+            </>
+        ) : (
+            <>
+              <SignUpForm />
+              <div className="flex gap-3 justify-end ">
+                <p className="text-blue-950">Already have an account?</p>
+                <button className="text-blue-500 underline" onClick={() => setIsLogin(true)}>
+                  Log in
+                </button>
+              </div>
+              <SignWith providers={providers} />
+            </>
+        )}
+      </>
   );
 };
 

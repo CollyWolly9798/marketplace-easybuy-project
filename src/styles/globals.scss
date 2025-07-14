@@ -10,6 +10,16 @@ body {
   margin: 0;
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+header,
+footer {
+  z-index: 100;
+}
+
 .layout {
   display: flex;
   flex-direction: column;

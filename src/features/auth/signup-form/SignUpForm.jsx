@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { register } from "@/lib/redux/auth/operations";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import Link from "next/link.js";
 
 const registrationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -17,8 +18,8 @@ const registrationSchema = Yup.object().shape({
   //   .matches(/^\+380\d{9}$/, 'Enter a valid phone number (e.g. +380991234567)')
   //   .required('Phone number is required'),
   password: Yup.string()
-    .min(8, "Password must be at least 8 characters long")
-    .max(20, "Password cannot exceed 20 characters")
+    .min(6, "Password must be at least 6 characters long")
+    .max(50, "Password cannot exceed 50 characters")
     .matches(/[a-z]/, "Password must contain at least one lowercase letter")
     .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
     .matches(/[0-9]/, "Password must contain at least one number")
@@ -138,6 +139,7 @@ const SignUpForm = () => {
           </button>
         </Form>
       </Formik>
+
     </div>
   );
 };

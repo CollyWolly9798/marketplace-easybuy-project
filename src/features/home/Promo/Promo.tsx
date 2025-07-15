@@ -1,6 +1,5 @@
-import LargeCarousel from '@/components/ui/large-carousel/LargeCarousel';
 import { Slide } from '@/types/Slider';
-import './Promo.scss';
+import LargeSlider from "@/components/ui/large-slider/LargeSlider";
 
 const slides: Slide[] = [
   {
@@ -24,8 +23,8 @@ const slides: Slide[] = [
 ];
 export default function Promo() {
   return (
-    <section className='section-promo'>
-      <LargeCarousel slides={slides} />
-    </section>
+      <section className='pb-9'>
+      <LargeSlider  slides={slides}/>
+      </section>
   );
 }

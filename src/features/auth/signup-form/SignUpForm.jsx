@@ -5,7 +5,6 @@ import * as Yup from "yup";
 import { useState } from "react";
 import HideIcon from "@/components/icons/HideIcon.jsx";
 import ShowIcon from "@/components/icons/ShowIcon.jsx";
-import style from "./SignUpForm.module.scss";
 import { useDispatch } from "react-redux";
 import { register } from "@/lib/redux/auth/operations";
 import { useRouter } from "next/navigation";
@@ -17,8 +16,8 @@ const registrationSchema = Yup.object().shape({
   //   .matches(/^\+380\d{9}$/, 'Enter a valid phone number (e.g. +380991234567)')
   //   .required('Phone number is required'),
   password: Yup.string()
-    .min(8, "Password must be at least 8 characters long")
-    .max(20, "Password cannot exceed 20 characters")
+    .min(6, "Password must be at least 6 characters long")
+    .max(50, "Password cannot exceed 50 characters")
     .matches(/[a-z]/, "Password must contain at least one lowercase letter")
     .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
     .matches(/[0-9]/, "Password must contain at least one number")
@@ -54,8 +53,8 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={style.formWrapper}>
-      <h1 className={style.title}>Sign up</h1>
+    <div className="text-black">
+      <h1 className="flex justify-center text-[40px] text-blue-800 mb-2">Sign up</h1>
       <Formik
         validationSchema={registrationSchema}
         initialValues={{
@@ -68,13 +67,13 @@ const SignUpForm = () => {
         }}
         onSubmit={handleSubmit}
       >
-        <Form className={style.form}>
-          <div className={style.wrapper}>
-            <label className={style.label} htmlFor='email'>
+        <Form className="flex flex-col gap-4">
+          <div className="flex flex-col">
+            <label className="mb-2" htmlFor='email'>
               Email
             </label>
-            <Field className={style.input} type='email' name='email' id='email' placeholder='Enter Email' />
-            <ErrorMessage className={style.err} name='email' component='span' />
+            <Field className="px-3 py-2 text-sm leading-relaxed border-2 border-gray-300 rounded-[8px] transition focus:border-purple-800 focus:text-blue-500 lg:p-3 text-[16px]" type='email' name='email' id='email' placeholder='Enter Email' />
+            <ErrorMessage className="min-h-5 text-[12px] text-red-500 pt-2" name='email' component='span' />
           </div>
           {/* <div className={style.wrapper}>
             <label className={style.label} htmlFor='number'>
@@ -83,61 +82,62 @@ const SignUpForm = () => {
             <Field className={style.input} type='tel' name='number' id='number' placeholder='+38' />
             <ErrorMessage className={style.err} name='number' component='span' />
           </div> */}
-          <div className={style.wrapper}>
-            <label className={style.label} htmlFor='password'>
+          <div className="flex flex-col">
+            <label className="mb-2" htmlFor='password'>
               Password
             </label>
-            <div className={style.passwordField}>
+            <div className="relative flex items-center">
               <Field
-                className={style.input}
+                  className="w-full px-3 py-2 text-sm leading-relaxed border-2 border-gray-300 rounded-[8px] transition focus:border-purple-800 focus:text-blue-500 lg:p-3 text-[16px] "
                 type={showPassword ? "text" : "password"}
                 name='password'
                 id='password'
                 placeholder='Enter Password'
               />
-              <button className={style.toggleBtn} type='button' onClick={() => setShowPassword(prev => !prev)}>
+              <button className="w-6 h-6 top-3 right-3 absolute   cursor-pointer " type='button' onClick={() => setShowPassword(prev => !prev)}>
                 {showPassword ? <HideIcon /> : <ShowIcon />}
               </button>
             </div>
-            <ErrorMessage className={style.err} name='password' component='span' />
+            <ErrorMessage className="min-h-5 text-[12px] text-red-500 pt-2" name='password' component='span' />
           </div>
-          <div className={style.wrapper}>
-            <label className={style.label} htmlFor='repeatPassword'>
+          <div className="flex flex-col">
+            <label className="mb-2" htmlFor='repeatPassword'>
               Confirm Password
             </label>
-            <div className={style.passwordField}>
+            <div className="relative flex items-center ">
               <Field
-                className={style.input}
+                  className="w-full px-3 py-2 text-sm leading-relaxed border-2 border-gray-300 rounded-[8px] transition focus:border-purple-800 focus:text-blue-500 lg:p-3 text-[16px] "
                 type={showConfirmPassword ? "text" : "password"}
                 id='confirmPassword'
                 name='confirmPassword'
                 placeholder='Confirm Password'
               />
-              <button type='button' onClick={() => setShowConfirmPassword(prev => !prev)} className={style.toggleBtn}>
+              <button type='button' onClick={() => setShowConfirmPassword(prev => !prev)} className= "w-6 h-6 top-3 right-3 absolute   cursor-pointer ">
                 {showConfirmPassword ? <HideIcon /> : <ShowIcon />}
-              </button>{" "}
+              </button>
             </div>
-            <ErrorMessage className={style.err} name='confirmPassword' component='span' />
+            <ErrorMessage className="min-h-5 text-[12px] text-red-500 pt-2" name='confirmPassword' component='span' />
           </div>
           <div>
-            <label className={style.checkbox}>
+            <label className="flex gap-2">
               <Field type='checkbox' name='agreement' id='agreement' />
-              <p className={style.text}>User Agreement</p>
+              <p className="text-[14px] text-blue-500">User Agreement</p>
             </label>
-            <ErrorMessage className={style.err} name='agreement' component='span' />
+            <ErrorMessage className="min-h-5 text-[12px] text-red-500 pt-2" name='agreement' component='span' />
           </div>
           <div>
-            <label className={style.checkbox}>
+            <label className="flex gap-2">
               <Field type='checkbox' name='privacy' id='privacy' />
-              <p className={style.text}>Privacy Policy</p>
+              <p className="text-[14px] text-blue-500">Privacy Policy</p>
             </label>
-            <ErrorMessage className={style.err} name='privacy' component='span' />
+            <ErrorMessage className="min-h-5 text-[12px] text-red-500 pt-2" name='privacy' component='span' />
           </div>
-          <button className={style.submitBtn} type='submit'>
+          <button className='font-bold rounded-lg px-4 py-3 text-white bg-blue-900 lg:cursor-pointer border-none mb-3' type='submit'>
             Confirm
           </button>
         </Form>
       </Formik>
+
     </div>
   );
 };

@@ -57,7 +57,7 @@ export const logOut = createAsyncThunk<void, void, { rejectValue: string }>(
 
             delete axios.defaults.headers.common.Authorization;
         } catch (error) {
-            return thunkAPI.rejectWithValue("Logout failed");
+            return thunkAPI.rejectWithValue(error instanceof Error ? error.message : "Logout failed");
         }
     }
 );
@@ -78,7 +78,7 @@ export const refreshUser = createAsyncThunk<AuthResponse, void, { rejectValue: s
 
             return res.data;
         } catch (error) {
-            return thunkAPI.rejectWithValue("Unable to refresh user");
+            return thunkAPI.rejectWithValue(error instanceof Error ? error.message :"Unable to refresh user");
         }
     }
 );

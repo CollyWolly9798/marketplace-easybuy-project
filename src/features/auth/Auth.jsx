@@ -34,7 +34,7 @@ const Auth = () => {
               <SignUpForm />
               <div className="flex gap-3 justify-end ">
                 <p className="text-blue-950">Already have an account?</p>
-                <button className="text-blue-500 underline" onClick={() => setIsLogin(true)}>
+                <button className="text-blue-500 underline lg:cursor-pointer" onClick={() => setIsLogin(true)}>
                   Log in
                 </button>
               </div>

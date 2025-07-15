@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { login } from "@/lib/redux/auth/operations.ts";
-import style from "./SignInForm.module.scss";
+
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
@@ -60,13 +60,13 @@ const SignInForm = () => {
               Email
             </label>
             <Field className="px-3 py-2 text-sm leading-relaxed border-2 border-gray-300 rounded-[8px] transition focus:border-purple-800 focus:text-blue-500 lg:p-3 text-[16px]" type='email' name='email' id='email' placeholder='Enter Email' />
-            <ErrorMessage className={style.err} name='email' component='span' />
+            <ErrorMessage className="min-h-5 text-[12px] text-red-500 pt-2" name='email' component='span' />
           </div>
           <div className="flex flex-col">
             <label className="mb-2" htmlFor='password'>
               Password
             </label>
-            <div className="relative flex items-center ">
+            <div className="relative flex items-center mb-5">
               <Field
                 className="w-full px-3 py-2 text-sm leading-relaxed border-2 border-gray-300 rounded-[8px] transition focus:border-purple-800 focus:text-blue-500 lg:p-3 text-[16px] "
                 type={showPassword ? "text" : "password"}
@@ -74,19 +74,19 @@ const SignInForm = () => {
                 id='password'
                 placeholder='Enter Password'
               />
-              <button className="w-6 h-6 top-3 right-3 absolute bg-none border-none cursor-pointer " type='button' onClick={() => setShowPassword(prev => !prev)}>
+              <button className="w-6 h-6 top-3 right-3 absolute   cursor-pointer " type='button' onClick={() => setShowPassword(prev => !prev)}>
                 {showPassword ? <HideIcon /> : <ShowIcon />}
               </button>
             </div>
-            <ErrorMessage className={style.err} name='password' component='span' />
+            <ErrorMessage className="min-h-5 text-[12px] text-red-500 pt-2" name='password' component='span' />
             <div>
-              <label className={style.checkbox}>
+              <label className="flex gap-2">
                 <Field type='checkbox' name='rememberMe' id='rememberMe' />
-                <p className={style.text}>Remember Me</p>
+                <p className="text-[14px] text-blue-500">Remember Me</p>
               </label>
             </div>
           </div>
-          <button className={style.submitBtn} type='submit'>
+          <button className='font-bold rounded-lg px-4 py-3 text-white bg-blue-900 lg:cursor-pointer border-none mb-3' type='submit'>
             Confirm
           </button>
         </Form>

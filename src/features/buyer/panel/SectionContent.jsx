@@ -25,15 +25,22 @@ const SectionContent = ({ sectionKey, onBack }) => {
   const SectionComponent = sections[sectionKey]?.component;
 
   return (
-    <div className='max-w-[343px] mx-auto'>
-      <button onClick={onBack} className='w-full mb-4 flex items-center justify-center gap-2 relative'>
-        <div className='absolute left-0 top-1/2 -translate-y-1/2'>
+    <div className="max-w-[343px] mx-auto">
+      <button
+        onClick={onBack}
+        className="w-full mb-4 flex items-center justify-center gap-2 relative"
+      >
+        <div className="absolute left-0 top-1/2 -translate-y-1/2">
           <LeftArrIcon />
         </div>
-        <h2 className='text-xl font-bold text-blue-900 '>{sections[sectionKey]?.label || 'Section'}</h2>
+        <h2 className="text-xl font-bold text-blue-900 ">
+          {sections[sectionKey]?.label || 'Section'}
+        </h2>
       </button>
 
-      <div className='p-4'>{SectionComponent ? <SectionComponent /> : <div>Section not found</div>}</div>
+      <div className="p-4">
+        {SectionComponent ? <SectionComponent /> : <div>Section not found</div>}
+      </div>
     </div>
   );
 };

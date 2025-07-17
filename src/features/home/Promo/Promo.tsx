@@ -1,5 +1,5 @@
 import { Slide } from '@/types/Slider';
-import LargeSlider from "@/components/ui/large-slider/LargeSlider";
+import LargeSlider from '@/components/ui/large-slider/LargeSlider';
 
 const slides: Slide[] = [
   {
@@ -23,8 +23,8 @@ const slides: Slide[] = [
 ];
 export default function Promo() {
   return (
-      <section className='pb-9'>
-      <LargeSlider  slides={slides}/>
-      </section>
+    <section className="pb-9 pt-6 lg:pt-[56px]">
+      <LargeSlider slides={slides} />
+    </section>
   );
 }

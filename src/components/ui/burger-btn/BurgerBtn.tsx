@@ -1,11 +1,10 @@
-import BurgerBtn from '@/components/icons/mobile/BurgerBtnIcon';
-import styles from './BurgerBtn.module.scss';
+import BurgerBtnIcon from '@/components/icons/mobile/BurgerBtnIcon';
 
 const BurgerButton = () => {
   return (
-    <div className={styles.button}>
-      <button type='button'>
-        <BurgerBtn />
+    <div className="lg:hidden">
+      <button type="button">
+        <BurgerBtnIcon />
       </button>
     </div>
   );

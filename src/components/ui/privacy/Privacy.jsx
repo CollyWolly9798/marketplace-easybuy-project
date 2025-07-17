@@ -11,10 +11,10 @@ const Privacy = () => {
         <p>All rights reserved</p>
       </div>
       <div className={style.link}>
-        <Link href='!#' className={style.link}>
+        <Link href="!#" className={style.link}>
           Privacy Policy
         </Link>
-        <Link href='!#' className={style.link}>
+        <Link href="!#" className={style.link}>
           User Agreement
         </Link>
       </div>

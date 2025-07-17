@@ -43,7 +43,9 @@ $errorColor: #ff4e64;
 $background-page-color: #f8f9fb;
 
 // Shadow
-$shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 0 16px 32px rgba(0, 0, 0, 0.06);
+$shadow:
+  0 6px 12px rgba(0, 0, 0, 0.08),
+  0 16px 32px rgba(0, 0, 0, 0.06);
 
 // Gradient
 $gradient-orange: linear-gradient(180deg, $color-orange-1 0%, $color-orange-2 100%);

@@ -10,7 +10,7 @@ const SignWith = ({ providers }) => {
         {providers.map(({ icon: Icon, name, href }, index) => (
           <li key={index}>
             <Link href={href}>
-              <button className={style.btn} type='button' disabled>
+              <button className={style.btn} type="button" disabled>
                 <Icon />
                 <p className={style.company}>{name}</p>
                 <ArrRAuth />

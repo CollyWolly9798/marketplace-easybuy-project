@@ -4,7 +4,9 @@
 .product-card {
   max-width: 396px;
   background-color: variables.$color-white-1;
-  box-shadow: 5px 5px 50px 10px rgba(0, 0, 0, 0.25), -10px -10px 50px 10px #fffaf6;
+  box-shadow:
+    5px 5px 50px 10px rgba(0, 0, 0, 0.25),
+    -10px -10px 50px 10px #fffaf6;
   position: relative;
 }
 

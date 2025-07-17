@@ -8,9 +8,9 @@ import WishListIcon from '@/components/icons/mobile/WishListIcon.jsx';
 import CompareIcon from '@/components/icons/mobile/CompareIcon.jsx';
 import PaymentIcon from '@/components/icons/mobile/PaymentIcon.jsx';
 import RightArrIcon from '@/components/icons/mobile/RightArrIcon.jsx';
-import {useDispatch} from "react-redux";
-import {logOut} from "@/lib/redux/auth/operations";
-import PrivateRoute from "@/features/auth/private-route/PrivateRoute";
+import { useDispatch } from 'react-redux';
+import { logOut } from '@/lib/redux/auth/operations';
+import PrivateRoute from '@/features/auth/private-route/PrivateRoute';
 
 const sections = {
   personalData: { label: 'Personal data', icon: <ProfileIcon /> },
@@ -23,21 +23,27 @@ const sections = {
 };
 
 const Menu = ({ setActiveSection }) => {
-    const dispatch = useDispatch() ;
+  const dispatch = useDispatch();
 
-    const handleLogout = () => {
-        dispatch(logOut())
-    }
+  const handleLogout = () => {
+    dispatch(logOut());
+  };
   return (
     <PrivateRoute>
-      <div className='flex items-center justify-center gap-6 mb-5'>
-        <Image src='/img/avatar.png' alt='Avatar' width={48} height={48} className='rounded-full object-cover' />
+      <div className="flex items-center justify-center gap-6 mb-5">
+        <Image
+          src="/img/avatar.png"
+          alt="Avatar"
+          width={48}
+          height={48}
+          className="rounded-full object-cover"
+        />
         <div>
-          <h2 className='font-bold text-2xl text-blue-800'>Anthony Hopkins</h2>
+          <h2 className="font-bold text-2xl text-blue-800">Anthony Hopkins</h2>
         </div>
       </div>
 
-      <nav className='flex flex-col gap-6 text-gray-500 pl-7'>
+      <nav className="flex flex-col gap-6 text-gray-500 pl-7">
         {Object.entries(sections).map(([key, { label, icon }]) => (
           <MenuItem
             key={key}
@@ -49,12 +55,17 @@ const Menu = ({ setActiveSection }) => {
         ))}
       </nav>
 
-      <div className='mt-3 border-t pt-5 text-gray-500 space-y-2 mb-4.5'>
-        <p className='text-gray-500 text-[20px] pl-7  hover:text-blue-900 transition'>Settings</p>
-        <p className='text-gray-500 text-[20px] pl-7  hover:text-blue-900 transition'>Help Center</p>
+      <div className="mt-3 border-t pt-5 text-gray-500 space-y-2 mb-4.5">
+        <p className="text-gray-500 text-[20px] pl-7  hover:text-blue-900 transition">Settings</p>
+        <p className="text-gray-500 text-[20px] pl-7  hover:text-blue-900 transition">
+          Help Center
+        </p>
       </div>
 
-      <button className='flex mx-auto py-3 px-12 border border-blue-800 text-blue-800 rounded-lg hover:bg-blue-50 transition'onClick={handleLogout}>
+      <button
+        className="flex mx-auto py-3 px-12 border border-blue-800 text-blue-800 rounded-lg hover:bg-blue-50 transition"
+        onClick={handleLogout}
+      >
         Log out
       </button>
     </PrivateRoute>

@@ -16,8 +16,8 @@ export default function UserProfileFormik() {
 
   return (
     <>
-      <BuyerForm title='User data' initialData={userData} />
-      <BuyerForm title='Address data' initialData={addressData} />
+      <BuyerForm title="User data" initialData={userData} />
+      <BuyerForm title="Address data" initialData={addressData} />
     </>
   );
 }

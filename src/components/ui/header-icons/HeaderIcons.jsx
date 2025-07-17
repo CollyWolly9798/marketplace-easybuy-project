@@ -2,24 +2,23 @@ import Link from 'next/link';
 import LikeIcon from '@/components/icons/LikeIcon';
 import TouchIcon from '@/components/icons/TouchIcon';
 import CartIcon from '@/components/icons/CartIcon';
-import style from './HeaderIcons.module.scss';
 
 const HeaderIcons = () => {
   return (
-    <ul className={style.list}>
-      <li>
-        <Link href='#'>
-          <LikeIcon className={style.icon} />
+    <ul className="flex items-center gap-5">
+      <li className="hidden lg:flex">
+        <Link href="#">
+          <LikeIcon className="transition duration-200 group/icon hover:fill-white2 focus:fill-white2" />
+        </Link>
+      </li>
+      <li className="hidden lg:flex">
+        <Link href="#">
+          <TouchIcon className="transition duration-200 group/icon hover:fill-white2 focus:fill-white2" />
         </Link>
       </li>
       <li>
-        <Link href='#'>
-          <TouchIcon className={style.icon} />
-        </Link>
-      </li>
-      <li>
-        <Link href='#'>
-          <CartIcon className={style.icon} />
+        <Link href="#">
+          <CartIcon className="transition duration-200 group/icon hover:fill-white2 focus:fill-white2" />
         </Link>
       </li>
     </ul>

@@ -42,15 +42,15 @@ export default function RecommendationsNew() {
     },
   ];
   return (
-    <section className='section-container'>
-      <div className='section-wrapper'>
-        <h2 className='section-logo'>Recommendations</h2>
-        <a className='section-link' href='#'>
+    <section className="section-container">
+      <div className="section-wrapper">
+        <h2 className="section-logo">Recommendations</h2>
+        <a className="section-link" href="#">
           Shop now
           <LinkIcon />
         </a>
       </div>
-      <div className='product-wrapper'>
+      <div className="product-wrapper">
         {products.map((product, i) => (
           <ProductCard key={i} {...product} />
         ))}

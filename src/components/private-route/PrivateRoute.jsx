@@ -1,23 +1,21 @@
-'use client'
+'use client';
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useSelector } from 'react-redux';
 
 export default function ProtectedRoute({ children }) {
-    const router = useRouter()
+  const router = useRouter();
 
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push('/login');
+    }
+  }, [isLoggedIn]);
 
-    useEffect(() => {
-        if (!isLoggedIn) {
-            router.push('/login')
-        }
-    }, [isLoggedIn])
+  if (!isLoggedIn) return null;
 
-
-    if (!isLoggedIn) return null
-
-    return children
+  return children;
 }

@@ -1,18 +1,53 @@
-@use "./variables";
-@use "./mixins";
-@use "./fonts";
-@use "tailwindcss";
-@use "tailwindcss/utilities";
+@use './variables';
+@use './mixins';
+@use './fonts';
+@use 'tailwindcss';
+@use 'tailwindcss/utilities';
+
+//tailwind
+  @theme{
+    --color-main:#104c9a;
+    --color-background:#F8F9FB;
+    --color-white2:#fff5ee;
+    --font-inter: 'Inter', sans-serif;
+    --font-dm: 'DM Sans', sans-serif;
+    --font-zen:'ZenDots', sans-serif;
+    --shadow-main: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    --shadow-iput:0 0 0 4px rgba(78, 70, 180, 0.2);
+  }
+
+@layer components{
+  .btnHeader {
+    @apply font-semibold leading-tight flex items-center justify-center
+    px-[22px] py-[10px] border-4 border-transparent rounded-lg
+    shadow-none cursor-pointer box-border transition-all duration-300 ease-in-out
+    bg-transparent;
+    color: #fff5ec;
+  }
+
+  .btnHeader:hover {
+    @apply scale-105 bg-white/10;
+    box-shadow: 0 0 14px 0 rgba(201, 223, 255, 0.52);
+    border-color: var(--btn-hover-border);
+  }
+
+  .btnHeader:active {
+    @apply scale-110;
+    border-width: 4px;
+    border-color: var(--btn-hover-border);
+  }
+}
+@layer base{}
+
+html{
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
 
 html,
 body {
   height: 100%;
   margin: 0;
-}
-
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 header,
@@ -31,11 +66,9 @@ footer {
 }
 
 body {
-  font-family: variables.$font-inter;
-  font-weight: 400;
+  @apply text-main bg-background font-inter font-normal;
   overflow-x: hidden;
-  color: variables.$color-white-2;
-  background-color: variables.$background-page-color;
+  overflow-y: auto;
 }
 
 a,
@@ -45,6 +78,24 @@ button,
 select {
   outline: none;
   box-shadow: none;
+}
+
+.container {
+  @apply mx-auto px-4 w-full;
+
+  max-width: 375px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1680px) {
+  .container {
+    max-width: 1680px;
+  }
 }
 
 .home-container {
@@ -72,9 +123,6 @@ select {
   overflow: hidden;
 }
 
-.input-shadow {
-  box-shadow: 0 0 0 4px rgba(78, 70, 180, 0.2);
-}
 
 .gradient-button {
   background: linear-gradient(0deg, #4b99ff 0%, #3e5b7e 54.72%, #071739 100%);

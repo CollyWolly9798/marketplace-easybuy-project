@@ -10,7 +10,7 @@ const UserPanel = () => {
   return (
     <aside>
       {activeSection === 'menu' ? (
-        <div className='mx-4 mb-13 max-w-[343px] w-full rounded-[16px] shadow-lg py-3'>
+        <div className="mx-4 mb-13 max-w-[343px] w-full rounded-[16px] shadow-lg py-3">
           <Menu setActiveSection={setActiveSection} />
         </div>
       ) : (

@@ -1,16 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link.js';
-import style from './Logo.module.scss';
 import LogoMobileIcon from '@/components/icons/mobile/LogoMobileIcon.tsx';
 
 const Logo = () => {
   return (
     <>
-      <Link className={style.mobile} href='/'>
+      <Link className="lg:hidden" href="/">
         <LogoMobileIcon />
       </Link>
-      <Link className={style.logo} href='/'>
-        <Image src='/img/logo/logo.png' alt='easybuy logo' width={218} height={44} />
+      <Link className="hidden lg:block" href="/">
+        <Image src="/img/logo/logo.png" alt="easybuy logo" width={218} height={44} />
       </Link>
     </>
   );

@@ -5,7 +5,9 @@ const FooterSeller = () => {
   return (
     <div className={style.wrapper}>
       <h2 className={style.title}>Start selling today!</h2>
-      <p className={style.subtitle}>Join our marketplace and discover new opportunities for your business!</p>
+      <p className={style.subtitle}>
+        Join our marketplace and discover new opportunities for your business!
+      </p>
       <ul className={style.list}>
         <li>Millions of buyers are waiting for your products;</li>
         <li>Increase sales and make more profit;</li>

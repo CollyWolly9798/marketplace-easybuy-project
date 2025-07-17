@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
 
 const PrivateRoute = ({ children }) => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      router.replace("/");
+      router.replace('/');
     }
   }, [isLoggedIn, router]);
 

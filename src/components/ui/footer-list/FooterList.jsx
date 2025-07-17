@@ -17,7 +17,7 @@ const FooterList = () => {
             const isMobileOnly = text === 'User Agreement' || text === 'Privacy Policy';
             return (
               <li key={textI} className={isMobileOnly ? style.mobile : undefined}>
-                <Link href='!#' className={style.link}>
+                <Link href="!#" className={style.link}>
                   {text}
                 </Link>
               </li>
